@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hoş Geldiniz</h1>
+    <p>Yeni KULLANICI TOPLAMA uygulamanıza hoş geldiniz.</p>
+    <p>
+        <a class="btn btn-primary" asp-area="" asp-controller="Users" asp-action="Index">Kullanıcılar</a>
+    </p>
+</div>
+@model IEnumerable<WebApplication2.Models.User>
+
+@{
+    ViewData["Title"] = "Kullanıcılar";
+}
+
+<h1>Kullanıcılar</h1>
+
+<p>
+    <a href="@Url.Action("Create")">Yeni Oluştur</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <th>Kullanıcı E-postası</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>@item.UserEmail</td>
+            </tr>
+        }
+    </tbody>
+</table>
